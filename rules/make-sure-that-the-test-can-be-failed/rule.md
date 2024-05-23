@@ -1,21 +1,19 @@
 ---
 type: rule
-archivedreason: 
 title: Do you make sure that the test can be failed?
-guid: fec2a216-ace7-4720-866f-9db216f9d0a9
 uri: make-sure-that-the-test-can-be-failed
-created: 2020-03-12T23:16:37.0000000Z
 authors:
-- title: Adam Cogan
-  url: https://ssw.com.au/people/adam-cogan
-- title: Jason Taylor
-  url: https://ssw.com.au/people/jason-taylor
+  - title: Adam Cogan
+    url: https://ssw.com.au/people/adam-cogan
+  - title: Jason Taylor
+    url: https://ssw.com.au/people/jason-taylor
 related: []
 redirects:
-- do-you-make-sure-that-the-test-can-be-failed
-
+  - do-you-make-sure-that-the-test-can-be-failed
+created: 2020-03-12T23:16:37.000Z
+archivedreason: null
+guid: fec2a216-ace7-4720-866f-9db216f9d0a9
 ---
-
 It's important that the unit tests you develop are capable of failing and that you have seen it fail. A test that can never fail isn't helpful for anyone.
 
 This is a fundamental principle in Test Driven Development (TDD) called Red/Green/Refactor.
@@ -41,13 +39,13 @@ public int Sum(int x, int y)
    throw new NotImplementedException();
 }
 ```
+
 ::: bad
 Bad Example: The test fails by throwing a `NotImplementedException`.
 :::
 
 This test fails for the wrong reasons, by throwing a `NotImplementedException`. In production, this is not a valid reason for this test to fail.
-A `NotImplementedException` is synonymous with "still in development", include a `//TODO: ` marker with some notes about the steps to take to implement the test.
-
+A `NotImplementedException` is synonymous with "still in development", include a `//TODO:` marker with some notes about the steps to take to implement the test.
 
 A better approach would be to return a value that is invalid.
 
@@ -94,8 +92,9 @@ public int Sum(int x, int y)
    throw NotImplementedException();
 }
 ```
+
 ::: good
-Good Example: The test fails by returning an invalid result or throwing a `NotImplementedException()` with a `//TODO: ` item.
+Good Example: The test fails by returning an invalid result or throwing a `NotImplementedException()` with a `//TODO:` item.
 
 :::
 
@@ -104,7 +103,4 @@ In this case, the test will fail because the `IsPositive` behavior is incorrect 
 You should do mutation testing to remove false positive tests and test your test suite to have more confidence.
 Visit the Wiki for more information about [Mutation Testing](https://en.wikipedia.org/wiki/Mutation_testing)
 
-To perform mutation testing you can use Stryker.NET. 
-For more information please visit the [Stryker website](https://stryker-mutator.io/docs/stryker-net/introduction/)
-
-
+To perform mutation testing you can use Stryker.NET.  For more information please visit the [Stryker website](https://stryker-mutator.io/docs/stryker-net/introduction/)
